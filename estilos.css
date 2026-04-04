@@ -78,7 +78,8 @@ body {
 .subtitulo {
     font-family: var(--fuente-subtitulo);
     font-size: 2rem;
-    border-bottom: 1px solid #ccc;
+    color: var(--rojo-sangre); /* Esto los pondrá igual que el menú */
+    border-bottom: 1px solid rgba(139, 0, 0, 0.3); /* Una línea sutil del mismo tono */
     display: inline-block;
     margin-bottom: 20px;
 }
