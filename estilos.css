@@ -1,62 +1,144 @@
-/* Variables de fuentes */
+/* Configuración de Fuentes y Colores */
 :root {
-    --fuente-titulo: 'Mrs Sheppards', cursive; /* O 'Lily Script One' */
+    --fuente-titulo: 'Mrs Sheppards', cursive; 
     --fuente-subtitulo: 'Trocchi', serif;
     --fuente-texto: 'Vents Sans', sans-serif;
     --fondo-crema: #FDF5E6;
+    --rojo-sangre: #8B0000;
 }
 
 body {
     background-color: var(--fondo-crema);
     font-family: var(--fuente-texto);
     margin: 0;
+    color: #2F4F4F;
 }
 
-.titulo-principal {
-    font-family: var(--fuente-titulo);
-    font-size: 4rem;
-    color: #8B0000; /* Rojo sangre oscuro */
+/* MENÚ DE NAVEGACIÓN FIJO */
+.menu-navegacion {
+    background-color: rgba(253, 245, 230, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--rojo-sangre);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-navegacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.menu-navegacion a {
+    text-decoration: none;
+    color: var(--rojo-sangre);
+    font-family: var(--fuente-subtitulo);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu-navegacion a:hover {
+    color: #ff0000;
+}
+
+/* CONTENEDOR DEL ÁRBOL (IFRAME) */
+.seccion-arbol {
+    padding: 20px;
     text-align: center;
+}
+
+.iframe-container {
+    border: 8px double var(--rojo-sangre);
+    background: white;
+    margin: 10px auto;
+    max-width: 1000px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* INTRODUCCIÓN NARRATIVA */
+.intro {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .subtitulo {
     font-family: var(--fuente-subtitulo);
-    font-weight: 700;
+    font-size: 2rem;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
-/* EFECTO BLOQUEADO */
-.bloqueada {
-    filter: grayscale(100%) opacity(0.5); /* Se ve gris y semitransparente */
-    cursor: not-allowed;
-    pointer-events: none; /* No permite hacer clic */
-}
-
+/* GALERÍA ESTILO POLAROID */
 .grid-herederas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+.tarjeta-heredera {
+    background-color: white;
+    padding: 15px 15px 35px 15px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+    width: 180px;
+    /* Efecto de foto pegada un poco torcida */
+    transform: rotate(-2deg);
+}
+
+.tarjeta-heredera:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.tarjeta-heredera:hover {
+    transform: rotate(0deg) scale(1.1);
+    z-index: 10;
 }
 
 .tarjeta-heredera img {
     width: 100%;
-    border-radius: 10px;
-    border: 2px solid #ccc;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #eee;
 }
 
-/* Contenedor para que el árbol no rompa el diseño */
-.iframe-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+.tarjeta-heredera span {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-family: var(--fuente-subtitulo);
+    font-size: 0.9rem;
 }
 
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #ddd;
+/* ESTADO BLOQUEADO */
+.bloqueada {
+    filter: grayscale(100%) blur(1px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.8rem;
+    color: #666;
 }
