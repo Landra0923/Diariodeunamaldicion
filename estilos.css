@@ -1,4 +1,4 @@
-/* Configuración de Fuentes y Colores */
+/* --- CONFIGURACIÓN BASE Y FUENTES --- */
 :root {
     --fuente-titulo: 'Mrs Sheppards', cursive; 
     --fuente-subtitulo: 'Trocchi', serif;
@@ -12,9 +12,10 @@ body {
     font-family: var(--fuente-texto);
     margin: 0;
     color: #2F4F4F;
+    line-height: 1.6;
 }
 
-/* MENÚ DE NAVEGACIÓN FIJO */
+/* --- MENÚ DE NAVEGACIÓN FIJO --- */
 .menu-navegacion {
     background-color: rgba(253, 245, 230, 0.98);
     position: sticky;
@@ -42,11 +43,42 @@ body {
     transition: 0.3s;
 }
 
-.menu-navegacion a:hover {
-    color: #ff0000;
+/* --- CÓDIGO PARA EL MENÚ DESPLEGABLE (DROPDOWN) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-/* CONTENEDOR DEL ÁRBOL (IFRAME) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--fondo-crema);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid var(--rojo-sangre);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-content a {
+    color: var(--rojo-sangre);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- CONTENEDOR DEL ÁRBOL (IFRAME) --- */
 .seccion-arbol {
     padding: 20px;
     text-align: center;
@@ -57,7 +89,7 @@ body {
     background: white;
     margin: 10px auto;
     max-width: 1000px;
-    height: 500px;
+    height: 550px;
     overflow: hidden;
 }
 
@@ -67,7 +99,16 @@ body {
     border: none;
 }
 
-/* INTRODUCCIÓN NARRATIVA */
+/* --- TÍTULOS Y TEXTO --- */
+.subtitulo {
+    font-family: var(--fuente-subtitulo);
+    font-size: 2rem;
+    color: var(--rojo-sangre);
+    border-bottom: 2px solid rgba(139, 0, 0, 0.2);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
 .intro {
     max-width: 800px;
     margin: 40px auto;
@@ -75,16 +116,7 @@ body {
     padding: 0 20px;
 }
 
-.subtitulo {
-    font-family: var(--fuente-subtitulo);
-    font-size: 2rem;
-    color: var(--rojo-sangre); /* Esto los pondrá igual que el menú */
-    border-bottom: 1px solid rgba(139, 0, 0, 0.3); /* Una línea sutil del mismo tono */
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-/* GALERÍA ESTILO POLAROID */
+/* --- GALERÍA ESTILO POLAROID (LO QUE SE HABÍA PERDIDO) --- */
 .grid-herederas {
     display: flex;
     flex-wrap: wrap;
@@ -102,8 +134,7 @@ body {
     color: inherit;
     transition: transform 0.3s ease;
     width: 180px;
-    /* Efecto de foto pegada un poco torcida */
-    transform: rotate(-2deg);
+    transform: rotate(-2deg); /* Efecto torcido */
 }
 
 .tarjeta-heredera:nth-child(even) {
@@ -128,12 +159,12 @@ body {
     margin-top: 15px;
     font-family: var(--fuente-subtitulo);
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
-/* ESTADO BLOQUEADO */
+/* --- ESTADO BLOQUEADO --- */
 .bloqueada {
-    filter: grayscale(100%) blur(1px);
-    opacity: 0.6;
+    filter: grayscale(100%) opacity(0.6);
     pointer-events: none;
 }
 
