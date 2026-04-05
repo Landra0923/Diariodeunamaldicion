@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente: Victoria Velanix | Diario de una Maldición</title>
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Mrs+Sheppards&family=Trocchi:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="body-expediente">
+
+    <nav class="menu-navegacion">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../album.html">Álbum</a></li>
+        </ul>
+    </nav>
+
+    <header class="header-heredera">
+        <h1 class="nombre-expediente">Victoria Velanix</h1>
+        <p class="numero-gen">Generación 0: La Fundadora</p>
+    </header>
+
+    <main class="contenedor-carpeta">
+        <div class="tabs-archivo">
+            <button class="tab-link active" onclick="abrirCapitulo(event, 'biografia')">Biografía</button>
+            <button class="tab-link" onclick="abrirCapitulo(event, 'omar')">Conociendo a Omar</button>
+            <button class="tab-link" onclick="abrirCapitulo(event, 'boda')">La Boda</button>
+            <button class="tab-link" onclick="abrirCapitulo(event, 'hijos')">Los Hijos</button>
+            <button class="tab-link" onclick="abrirCapitulo(event, 'traicion')">La Traición</button>
+        </div>
+
+        <div class="hoja-archivo">
+            
+            <div id="biografia" class="contenido-tab" style="display:block;">
+                <div class="perfil-layout">
+                    <img src="../assets/img/victoria.png" alt="Victoria" class="foto-perfil">
+                    <div class="datos-principales">
+                        <h3>Ficha General</h3>
+                        <p><strong>Estado:</strong> Fallecida (Causas naturales)</p>
+                        <p><strong>Personalidad:</strong> Ambiciosa, Esnob, Romántica</p>
+                        <p><strong>Aspiración:</strong> Mansión Barón</p>
+                        <p><strong>Carrera:</strong> Política (Líder del Mundo)</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="texto-literario">
+                    <h4>El Comienzo de la Oscuridad</h4>
+                    <p>Aquí va tu biografía... Victoria no llegó a este mundo con nada más que su apellido y una ambición que quemaba más que el sol de Oasis Springs...</p>
+                </div>
+            </div>
+
+            <div id="omar" class="contenido-tab">
+                <h3>El consorte: Omar Velanix</h3>
+                <p>Omar fue el primer peón en el tablero de Victoria. Un encuentro casual que selló el destino de las siguientes 32 generaciones...</p>
+            </div>
+
+            <div id="boda" class="contenido-tab">
+                <h3>Una Unión de Sangre</h3>
+                <p>No fue solo una fiesta. Fue el contrato oficial con la maldición. Aquí puedes poner fotos de la celebración...</p>
+            </div>
+
+            <div id="hijos" class="contenido-tab">
+                <h3>Descendientes Secundarios</h3>
+                <p>Hijos que no cargaron con el peso de la corona, pero sí con el de la sangre.</p>
+                <div class="grid-hijos">
+                    <div class="hijo-card">
+                        <img src="../assets/img/placeholder.png" alt="Hijo">
+                        <p>Nombre del Hijo</p>
+                        <a href="Hijos/Hijo1_Historia.html">Ver su historia</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="traicion" class="contenido-tab">
+                <h3>Manchas en el Diario</h3>
+                <p>Cada historia tiene un punto de quiebre. El de Victoria fue...</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function abrirCapitulo(evt, nombreCapitulo) {
+            var i, contenido, links;
+            contenido = document.getElementsByClassName("contenido-tab");
+            for (i = 0; i < contenido.length; i++) {
+                contenido[i].style.display = "none";
+            }
+            links = document.getElementsByClassName("tab-link");
+            for (i = 0; i < links.length; i++) {
+                links[i].className = links[i].className.replace(" active", "");
+            }
+            document.getElementById(nombreCapitulo).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
