@@ -1,41 +1,43 @@
-/* FONDO GENERAL DEL EXPEDIENTE */
+/* ESTRUCTURA GENERAL */
 .body-expediente {
-    background-color: #f5eadc; /* Beige tipo pergamino */
+    background-color: #f5eadc;
     margin: 0;
 }
 
-/* CENTRADO DE CABECERA Y LÍNEA ROJA */
+/* ENCABEZADO */
 .header-heredera-central {
     text-align: center;
-    margin: 40px 0;
+    margin: 30px 0 10px 0;
 }
 
 .nombre-expediente {
     font-family: 'Mrs Sheppards', cursive;
     color: #8B0000;
-    font-size: 5.5rem;
+    font-size: 6rem;
     margin: 0;
+    line-height: 0.7;
 }
 
 .linea-roja {
     border: 0;
     height: 3px;
     background: #8B0000;
-    width: 50%;
-    margin: 10px auto;
+    width: 48%;
+    margin: -5px auto 0 auto;
 }
 
 .numero-gen {
     font-family: 'Trocchi', serif;
     color: #8B0000;
     font-style: italic;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    margin-top: 10px;
 }
 
-/* SISTEMA DE PESTAÑAS (TABS) */
+/* CARPETA Y PESTAÑAS */
 .contenedor-carpeta {
     max-width: 950px;
-    margin: 0 auto 60px auto;
+    margin: 20px auto 60px auto;
 }
 
 .tabs-archivo {
@@ -52,30 +54,89 @@
     cursor: pointer;
     font-family: 'Trocchi', serif;
     border-radius: 12px 12px 0 0;
-    color: #3d1c02;
     font-weight: bold;
+    color: #3d1c02;
     transition: 0.3s;
 }
 
 .tab-link.active {
     background: #fdf5e6;
+    color: #8B0000;
     padding-bottom: 15px;
     margin-top: -5px;
-    color: #8B0000;
 }
 
+/* LA HOJA DE ARCHIVO */
 .hoja-archivo {
     background: #fdf5e6;
     border: 1px solid #7a4a2a;
     padding: 45px;
     box-shadow: 12px 12px 25px rgba(0,0,0,0.15);
     border-radius: 0 15px 15px 15px;
+    min-height: 600px;
 }
 
-/* RASGOS CON ICONOS CIRCULARES */
+/* LAYOUT DE LAS FICHAS TÉCNICAS */
+.perfil-layout {
+    display: flex;
+    gap: 45px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.marco-polaroid {
+    background: white;
+    padding: 15px 15px 45px 15px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    transform: rotate(-2deg);
+    min-width: 250px;
+}
+
+.foto-perfil {
+    width: 100%;
+    display: block;
+}
+
+.datos-principales h3 {
+    font-family: 'Trocchi', serif;
+    color: #4a0404;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.datos-principales p {
+    font-family: 'Trocchi', serif;
+    margin: 8px 0;
+}
+
+/* NUEVA SECCIÓN: RELACIONES DESTACADAS */
+.seccion-relaciones-titulo {
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+
+.seccion-relaciones-titulo h2 {
+    font-family: 'Trocchi', serif;
+    color: #8B0000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 15px 0;
+    font-size: 2rem;
+}
+
+.linea-decorativa {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8B0000, transparent);
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* RASGOS CIRCULARES */
 .rasgos-contenedor {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     margin-top: 15px;
 }
 
@@ -86,44 +147,27 @@
 }
 
 .rasgo-item img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%; /* Los hace círculos */
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
     border: 3px solid #8B0000;
     background: #fff;
     padding: 5px;
-    margin-bottom: 5px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
 .rasgo-item span {
     font-family: 'Trocchi', serif;
     font-size: 0.85rem;
-    color: #4a0404;
+    margin-top: 5px;
 }
 
-/* DISEÑO DE LA FOTO POLAROID */
-.perfil-layout {
-    display: flex;
-    gap: 45px;
-    align-items: center;
+/* OCULTAR PESTAÑAS POR DEFECTO */
+.contenido-tab {
+    display: none;
+    animation: fadeIn 0.5s;
 }
 
-.marco-polaroid {
-    background: white;
-    padding: 15px 15px 45px 15px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-    transform: rotate(-2deg);
-}
-
-.foto-perfil {
-    width: 260px;
-    display: block;
-}
-
-.separador-suave {
-    border: 0;
-    height: 1px;
-    background: #e2cfb6;
-    margin: 30px 0;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
